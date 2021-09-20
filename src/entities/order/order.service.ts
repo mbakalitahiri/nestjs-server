@@ -1,20 +1,21 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Orders } from './order.entity';
+import { OrdersEntity } from './order.entity';
+import { CartLinesEntity } from '../cart_lines/cart_lines.entity';
 
 @Injectable()
 export class OrderService {
   constructor(
-    @InjectRepository(Orders)
-    private orderRepository: Repository<Orders>,
+    @InjectRepository(OrdersEntity)
+    private orderRepository: Repository<OrdersEntity>,
   ) {}
 
-  findAll(): Promise<Orders[]> {
+  findAll(): Promise<OrdersEntity[]> {
     return this.orderRepository.find();
   }
 
-  findOne(id: string): Promise<Orders> {
+  findOne(id: string): Promise<OrdersEntity> {
     return this.orderRepository.findOne(id);
   }
 

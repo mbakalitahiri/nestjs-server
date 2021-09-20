@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { CartLinesEntity } from '../cart_lines/cart_lines.entity';
 
 @Entity()
-export class Orders {
+export class OrdersEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -37,4 +38,7 @@ export class Orders {
 
   @Column()
   datetime: string;
+
+  @OneToMany(() => CartLinesEntity, (cartLines) => cartLines.orders)
+  public carts: CartLinesEntity[];
 }

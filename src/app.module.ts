@@ -3,12 +3,12 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { CartLinesController } from './entities/cart_lines/cart_lines.controller';
-import { CartLines } from './entities/cart_lines/cart_lines.entity';
+import { CartLinesEntity } from './entities/cart_lines/cart_lines.entity';
 import { CartLinesModule } from './entities/cart_lines/cart_lines.module';
 import { OrderController } from './entities/order/order.controller';
-import { Orders } from './entities/order/order.entity';
+import { OrdersEntity } from './entities/order/order.entity';
 import { OrdersModule } from './entities/order/orders.module';
-import { Products } from './entities/products/products.entity';
+import { ProductsEntity } from './entities/products/products.entity';
 import { ProductModule } from './entities/products/products.module';
 
 import { LoggerModule } from 'nestjs-pino';
@@ -22,7 +22,7 @@ import { LoggerModule } from 'nestjs-pino';
       username: 'mohtadi',
       password: 'Estocolmo1!',
       database: 'ecommerce',
-      entities: [Orders, CartLines, Products],
+      entities: [OrdersEntity, CartLinesEntity, ProductsEntity],
       synchronize: true,
     }),
     OrdersModule,

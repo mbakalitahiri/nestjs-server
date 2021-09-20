@@ -1,7 +1,8 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { OrdersEntity } from '../order/order.entity';
 
 @Entity()
-export class CartLines {
+export class CartLinesEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -10,6 +11,9 @@ export class CartLines {
 
   @Column()
   product_id: number;
+
+  @Column()
+  quantity: number;
 
   @Column()
   name: string;
@@ -23,6 +27,6 @@ export class CartLines {
   @Column()
   price: number;
 
-  @Column()
-  quantity: number;
+  @ManyToOne(() => OrdersEntity, (orders) => orders.carts)
+  public orders: OrdersEntity;
 }

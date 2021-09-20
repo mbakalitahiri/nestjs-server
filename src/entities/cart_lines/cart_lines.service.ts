@@ -1,20 +1,20 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { CartLines } from './cart_lines.entity';
+import { CartLinesEntity } from './cart_lines.entity';
 
 @Injectable()
 export class CartLinesService {
   constructor(
-    @InjectRepository(CartLines)
-    private cartLinesRepository: Repository<CartLines>,
+    @InjectRepository(CartLinesEntity)
+    private cartLinesRepository: Repository<CartLinesEntity>,
   ) {}
 
-  findAll(): Promise<CartLines[]> {
+  findAll(): Promise<CartLinesEntity[]> {
     return this.cartLinesRepository.find();
   }
 
-  findOne(id: string): Promise<CartLines> {
+  findOne(id: string): Promise<CartLinesEntity> {
     return this.cartLinesRepository.findOne(id);
   }
 
