@@ -40,5 +40,5 @@ export class OrdersEntity {
   datetime: string;
 
   @OneToMany(() => CartLinesEntity, (cartLines) => cartLines.orders)
-  public carts: CartLinesEntity[];
+  carts: CartLinesEntity[];
 }

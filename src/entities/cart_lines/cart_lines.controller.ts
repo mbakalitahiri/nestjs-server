@@ -12,6 +12,6 @@ export class CartLinesController {
 
   @Get('cartlines/:id')
   getProduct(@Param('id') id) {
-    return this.appService.findOne(id);
+    return this.appService.findOne;
   }
 }

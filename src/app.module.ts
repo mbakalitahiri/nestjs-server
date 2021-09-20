@@ -20,7 +20,7 @@ import { LoggerModule } from 'nestjs-pino';
       host: 'localhost',
       port: 3306,
       username: 'mohtadi',
-      password: 'Estocolmo1!',
+      password: 'Estocolmo1',
       database: 'ecommerce',
       entities: [OrdersEntity, CartLinesEntity, ProductsEntity],
       synchronize: true,
